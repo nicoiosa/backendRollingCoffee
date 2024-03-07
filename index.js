@@ -4,14 +4,13 @@ import morgan from "morgan";
 import "dotenv/config"; // permite procesar variables de entorno
 import path from "path";
 import { fileURLToPath } from "url";
-import { log } from "console";
+import ProductosRouter from "./src/routes/productos.routes.js";
 
-// node --watch index.js (comando experimental para desarrollo; run dev)
+// node --watch index.js (comando experimental para desarrollo;para run dev)
 console.log("Bienvenidos c74i");
 
 // 1- Confgurar un puerto
 const app = express();
-
 app.set("port", process.env.PORT || 4000);
 app.listen(app.get("port"), () => {
   console.log("Estoy en el puerto " + app.get("port"));
@@ -27,7 +26,8 @@ const __direname = path.dirname(__filename);
 app.use(express.static(path.join(__direname, "public")));
 
 // 3- Configuracion de las rutas
-app.get("/new", (req, res) => {
-  console.log("Hola mundo");
-  res.send("Desde el backend de RollingCoffee");
-});
+// app.get("/new", (req, res) => {
+//   console.log("Hola mundo");
+//   res.send("Desde el backend de RollingCoffee");
+// });
+app.use("/api", ProductosRouter);
