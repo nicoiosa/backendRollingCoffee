@@ -8,13 +8,12 @@ import ProductosRouter from "./src/routes/productos.routes.js";
 import "./src/database/database.js";
 
 // node --watch index.js (comando experimental para desarrollo;para run dev)
-console.log("Bienvenidos c74i");
 
 // 1- Confgurar un puerto
 const app = express();
 app.set("port", process.env.PORT || 4000);
 app.listen(app.get("port"), () => {
-  console.log("Estoy en el puerto " + app.get("port"));
+  console.info("Estoy en el puerto " + app.get("port"));
 });
 
 // 2- Configurar middlewares
