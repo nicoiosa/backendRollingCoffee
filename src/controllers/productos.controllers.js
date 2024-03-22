@@ -15,7 +15,6 @@ export const crearProducto = async (req, res) => {
   try {
     // extraer los datos del body
     const productoNuevo = new Producto(req.body);
-    // todo: agregar la validaction de los datos del body
     // perdirle a la BD guardar el producto nuevo
     await productoNuevo.save();
     // enviar la respuesta al front
